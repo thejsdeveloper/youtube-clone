@@ -4,37 +4,38 @@
  */
 
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import {
-  CompositeScreenProps,
-  NavigatorScreenParams,
-} from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-declare global {
-  namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
-  }
-}
+// import {
+//   CompositeScreenProps,
+//   NavigatorScreenParams,
+// } from "@react-navigation/native";
+// import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Modal: undefined;
-  NotFound: undefined;
-};
+// declare global {
+//   namespace ReactNavigation {
+//     interface RootParamList extends RootStackParamList {}
+//   }
+// }
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, Screen>;
+// export type RootStackParamList = {
+//   Root: NavigatorScreenParams<RootTabParamList> | undefined;
+//   Modal: undefined;
+//   NotFound: undefined;
+// };
 
-export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-};
+// export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
+//   NativeStackScreenProps<RootStackParamList, Screen>;
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
-  CompositeScreenProps<
-    BottomTabScreenProps<RootTabParamList, Screen>,
-    NativeStackScreenProps<RootStackParamList>
-  >;
+// export type RootTabParamList = {
+//   TabOne: undefined;
+//   TabTwo: undefined;
+// };
+
+// export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
+//   CompositeScreenProps<
+//     BottomTabScreenProps<RootTabParamList, Screen>,
+//     NativeStackScreenProps<RootStackParamList>
+//   >;
 
 export type BottomTabParamList = {
   Home: undefined;
@@ -45,7 +46,4 @@ export type BottomTabParamList = {
 };
 
 export type AppBottomTabScreenProps<Screen extends keyof BottomTabParamList> =
-  CompositeScreenProps<
-    BottomTabScreenProps<BottomTabParamList, Screen>,
-    NativeStackScreenProps<RootStackParamList>
-  >;
+  BottomTabScreenProps<BottomTabParamList, Screen>;
