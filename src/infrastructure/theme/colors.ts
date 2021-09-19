@@ -1,31 +1,42 @@
+const youtubeRed = "#FF0000";
+const almostBlack = "#282828";
+const white = "#fff";
+const grey = "#aaa";
+const darkgrey = "#3d3d3d";
+const black = "#000";
+const blue = "#3ea6ff";
+const error = "#D0421B";
+const success = "#138000";
+
 const brand = {
-  primary: "#2182BD",
-  secondary: "#5282BD",
-  muted: "#C6DAF7",
+  primary: youtubeRed,
+  secondary: almostBlack,
+  muted: black,
 };
 
 const ui = {
-  primary: "#262626",
-  secondary: "#757575",
-  tertiary: "#F1F1F1",
-  quaternary: "#FFFFFF",
-  disabled: "#DEDEDE",
-  error: "#D0421B",
-  success: "#138000",
+  primary: almostBlack,
+  secondary: white,
+  tertiary: grey,
+  quaternary: darkgrey,
+  tags: blue,
+  disabled: grey,
+  error: error,
+  success: success,
 };
 
 const bg = {
-  primary: "#FFFFFF",
-  secondary: "#F1F1F1",
+  primary: almostBlack,
+  secondary: white,
 };
 
 const text = {
-  primary: "#262626",
-  secondary: "#757575",
-  disabled: "#9C9C9C",
-  inverse: "#FFFFFF",
-  error: "#D0421B",
-  success: "#138000",
+  primary: white,
+  secondary: grey,
+  disabled: grey,
+  inverse: white,
+  error: error,
+  success: success,
 };
 
 export type Colors = {

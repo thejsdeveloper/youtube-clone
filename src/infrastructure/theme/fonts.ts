@@ -3,9 +3,8 @@ export type FontWeights = typeof fontWeights;
 export type FontSizes = typeof fontSizes;
 
 export const fonts = {
-  body: "Oswald_400Regular",
-  heading: "Lato_400Regular",
-  monospace: "Oswald_400Regular",
+  body: "Roboto_400Regular",
+  heading: "Roboto_500Regular",
 };
 
 export const fontWeights = {
@@ -17,8 +16,8 @@ export const fontWeights = {
 export const fontSizes = {
   caption: "12px",
   button: "14px",
-  body: "16px",
-  title: "20px",
+  body: "16px", // 14
+  title: "20px", //18
   h5: "24px",
   h4: "34px",
   h3: "45px",
