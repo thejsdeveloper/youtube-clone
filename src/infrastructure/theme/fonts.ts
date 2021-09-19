@@ -4,7 +4,7 @@ export type FontSizes = typeof fontSizes;
 
 export const fonts = {
   body: "Roboto_400Regular",
-  heading: "Roboto_500Regular",
+  heading: "Roboto_500Medium",
 };
 
 export const fontWeights = {
