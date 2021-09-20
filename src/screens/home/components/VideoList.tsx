@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Video } from "../../../../models";
-import { Image } from "./style";
 import data from "../../../../assets/data/video.json";
 import { VideoListItem } from "../../../components/VideoListItem";
 import {
