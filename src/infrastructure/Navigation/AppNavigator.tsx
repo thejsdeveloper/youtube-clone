@@ -4,6 +4,8 @@ import { Foundation, Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 import { AppBottomTabScreenProps, BottomTabParamList } from "../../../types";
 import { StyleSheet, View, Text } from "react-native";
+import { colors } from "../theme/colors";
+import { HomeStackNavigator } from "./HomeStack";
 
 export default function TabOneScreen() {
   return (
@@ -38,13 +40,17 @@ export const AppNavigator = () => {
     <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "tomato",
+        headerShown: false,
+        tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
+        tabBarStyle: {
+          backgroundColor: colors.ui.primary,
+        },
       }}
     >
       <BottomTab.Screen
         name="Home"
-        component={TabOneScreen}
+        component={HomeStackNavigator}
         options={({ navigation }: AppBottomTabScreenProps<"Home">) => ({
           title: "Home",
           tabBarIcon: ({ color, focused }) =>
