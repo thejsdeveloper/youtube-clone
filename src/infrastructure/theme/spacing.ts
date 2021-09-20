@@ -12,5 +12,15 @@ export const space = {
   xxl: "64px",
 };
 
-export type Lineheight = typeof lineHeights;
-export type Space = typeof space;
+export type Lineheight = {
+  title: string;
+  copy: string;
+};
+export type Space = {
+  zero: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  xxl: string;
+};

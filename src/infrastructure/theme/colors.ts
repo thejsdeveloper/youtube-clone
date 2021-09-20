@@ -8,13 +8,30 @@ const blue = "#3ea6ff";
 const error = "#D0421B";
 const success = "#138000";
 
-const brand = {
+export type Brand = {
+  primary: string;
+  secondary: string;
+  muted: string;
+};
+
+const brand: Brand = {
   primary: youtubeRed,
   secondary: almostBlack,
   muted: black,
 };
 
-const ui = {
+export type UI = {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  quaternary: string;
+  tags: string;
+  disabled: string;
+  error: string;
+  success: string;
+};
+
+const ui: UI = {
   primary: almostBlack,
   secondary: white,
   tertiary: grey,
@@ -25,12 +42,26 @@ const ui = {
   success: success,
 };
 
-const bg = {
+export type BG = {
+  primary: string;
+  secondary: string;
+};
+
+const bg: BG = {
   primary: almostBlack,
   secondary: white,
 };
 
-const text = {
+export type Text = {
+  primary: string;
+  secondary: string;
+  disabled: string;
+  inverse: string;
+  error: string;
+  success: string;
+};
+
+const text: Text = {
   primary: white,
   secondary: grey,
   disabled: grey,
@@ -40,10 +71,10 @@ const text = {
 };
 
 export type Colors = {
-  brand: typeof brand;
-  ui: typeof ui;
-  bg: typeof bg;
-  text: typeof text;
+  brand: Brand;
+  ui: UI;
+  bg: BG;
+  text: Text;
 };
 
 export const colors: Colors = {
