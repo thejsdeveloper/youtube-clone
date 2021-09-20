@@ -29,6 +29,7 @@ export type UI = {
   disabled: string;
   error: string;
   success: string;
+  muted: string;
 };
 
 const ui: UI = {
@@ -40,6 +41,7 @@ const ui: UI = {
   disabled: grey,
   error: error,
   success: success,
+  muted: black,
 };
 
 export type BG = {
