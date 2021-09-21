@@ -15,6 +15,7 @@ const body = (theme: Theme) => `
 `;
 
 const title = (theme: Theme) => `
+  font-family: ${theme.fonts.heading};
   font-size: ${theme.fontSizes.title};
   font-weight: ${theme.fontWeights.bold};
 `;
