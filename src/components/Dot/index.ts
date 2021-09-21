@@ -7,8 +7,8 @@ type DotProps = {
   margin?: Scale;
 };
 export const Dot = styled.View<DotProps>`
-  width: ${({ theme, size = "xs" }) => theme.sizes[size]}};
-  height: ${({ theme, size = "xs" }) => theme.sizes[size]}};
+  width: ${({ theme, size = "xxs" }) => theme.sizes[size]}};
+  height: ${({ theme, size = "xxs" }) => theme.sizes[size]}};
   margin-left: ${({ theme, size = "sm" }) => theme.sizes[size]}};
   margin-right: ${({ theme, size = "sm" }) => theme.sizes[size]}};
   border-radius: 9999;
