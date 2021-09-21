@@ -12,6 +12,8 @@ import {
   FontWeights,
 } from "./fonts";
 
+export { Sizes, Fonts, FontSizes, FontWeights, Space, Lineheight };
+
 export interface Theme {
   colors: Colors;
   space: Space;
@@ -20,6 +22,7 @@ export interface Theme {
   fonts: Fonts;
   fontSizes: FontSizes;
   fontWeights: FontWeights;
+  variant: Record<string, any>;
 }
 
 export const theme: DefaultTheme = {

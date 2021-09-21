@@ -1,6 +1,6 @@
-type scale = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+export type Scale = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
-export type Sizes = Record<scale, string>;
+export type Sizes = Record<Scale, string>;
 
 export const sizes: Sizes = {
   xxs: "2px",
