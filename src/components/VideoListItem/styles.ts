@@ -25,6 +25,8 @@ export const TimeText = styled.Text`
 
 export const VideoDescriptionContainer = styled.View`
   flex-direction: row;
+  margin-top: ${(props) => props.theme.space.md};
+  margin-bottom: ${(props) => props.theme.space.lg};
   padding: ${(props) => props.theme.space.md};
 `;
 
