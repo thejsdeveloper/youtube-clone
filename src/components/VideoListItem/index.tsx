@@ -42,7 +42,7 @@ export const VideoListItem = ({ video }: VideoListItemProps) => {
         <Avatar source={{ uri: video.user.image }} />
         <View style={{ flex: 1 }}>
           <Description>
-            <Spacer position="bottom" size="md">
+            <Spacer position="bottom" size="sm">
               <YoutubeText variant="title">{video.title}</YoutubeText>
             </Spacer>
             <Row>
