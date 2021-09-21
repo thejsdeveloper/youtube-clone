@@ -22,3 +22,14 @@ export const TimeContainer = styled.View`
 export const TimeText = styled.Text`
   color: ${(props) => props.theme.colors.text.primary};
 `;
+
+export const VideoDescriptionContainer = styled.View`
+  flex-direction: row;
+  padding: ${(props) => props.theme.space.md};
+`;
+
+export const Description = styled.View`
+  flex-direction: column;
+  margin-left: ${(props) => props.theme.space.lg};
+  margin-right: ${(props) => props.theme.space.md};
+`;

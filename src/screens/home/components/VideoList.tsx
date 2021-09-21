@@ -7,21 +7,14 @@ import {
   TimeContainer,
   TimeText,
 } from "../../../components/VideoListItem/styles";
+import { Avatar } from "../../../components//Avatar";
 
 export const VideoList = () => {
   const video = data as unknown as Video;
-  const minutes = Math.floor(video.duration / 60);
-  const seconds = video.duration % 60;
 
   return (
     <View>
       <VideoListItem video={video} />
-      <TimeContainer>
-        <TimeText>
-          {minutes}:{seconds < 10 ? "0" : ""}
-          {seconds}
-        </TimeText>
-      </TimeContainer>
     </View>
   );
 };
