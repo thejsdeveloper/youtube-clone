@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Image } from "react-native";
 
 import { styled } from "../../infrastructure/theme/styled-component";
 import { AntDesign, Feather, FontAwesome } from "@expo/vector-icons";
@@ -7,8 +7,8 @@ import logo from ".././../../assets/images/logo.png";
 import { SafeAreaViewContainer } from "../SafeAreaView";
 
 const HeaderContainer = styled.View`
-  margin: 10px;
-  padding: 5px;
+  margin-bottom: ${(props) => props.theme.space.md};
+  padding: ${(props) => props.theme.space.lg};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
