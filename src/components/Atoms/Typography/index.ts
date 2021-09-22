@@ -1,5 +1,5 @@
-import { Theme } from "../../infrastructure/theme";
-import { styled } from "../../infrastructure/theme/styled-component";
+import { Theme } from "../../../infrastructure/theme";
+import { styled } from "../../../infrastructure/theme/styled-component";
 
 const defautTextStyles = (theme: Theme) => `
   font-family: ${theme.fonts.body};

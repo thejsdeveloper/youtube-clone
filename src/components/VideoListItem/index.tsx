@@ -10,10 +10,7 @@ import {
 } from "./styles";
 import { Video } from "../../../models";
 import { Avatar } from "../Avatar";
-import { YoutubeText } from "../Typography";
-import { Spacer } from "../Spacer";
-import { Row } from "../Container";
-import { Dot } from "../Dot";
+import { YoutubeText, Spacer, Row, Dot, Column } from "../Atoms";
 import { suffixNumber } from "../../utils";
 import { Entypo } from "@expo/vector-icons";
 
@@ -40,7 +37,7 @@ export const VideoListItem = ({ video }: VideoListItemProps) => {
       </View>
       <VideoDescriptionContainer>
         <Avatar source={{ uri: video.user.image }} />
-        <View style={{ flex: 1 }}>
+        <Row flex>
           <Description>
             <Spacer position="bottom" size="sm">
               <YoutubeText variant="title">{video.title}</YoutubeText>
@@ -53,7 +50,7 @@ export const VideoListItem = ({ video }: VideoListItemProps) => {
               <YoutubeText variant="subTitle">{video.createdAt}</YoutubeText>
             </Row>
           </Description>
-        </View>
+        </Row>
         <Spacer position="top" size="sm">
           <Entypo name="dots-three-vertical" size={14} color="white" />
         </Spacer>

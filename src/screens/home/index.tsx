@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { Container } from "../../components/Container";
+import { Column } from "../../components/Atoms";
 import { VideoList } from "./components/VideoList";
 
 export const HomeScreen = () => {
   return (
-    <Container>
+    <Column background="primary">
       <VideoList />
-    </Container>
+    </Column>
   );
 };

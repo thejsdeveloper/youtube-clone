@@ -30,6 +30,7 @@ export type UI = {
   error: string;
   success: string;
   muted: string;
+  transparent: string;
 };
 
 const ui: UI = {
@@ -42,6 +43,7 @@ const ui: UI = {
   error: error,
   success: success,
   muted: black,
+  transparent: "transparent",
 };
 
 export type BG = {

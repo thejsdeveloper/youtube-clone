@@ -1,6 +1,5 @@
-import { Sizes, Theme } from "../../infrastructure/theme";
-import { Scale } from "../../infrastructure/theme/sizes";
-import { styled } from "../../infrastructure/theme/styled-component";
+import { Scale } from "../../../infrastructure/theme/sizes";
+import { styled } from "../../../infrastructure/theme/styled-component";
 
 type DotProps = {
   size?: Scale;

@@ -1,8 +1,7 @@
 import React from "react";
-import { View } from "react-native";
 import { DefaultTheme, useTheme } from "styled-components/native";
-import { Space, Theme } from "../../infrastructure/theme";
-import { styled } from "../../infrastructure/theme/styled-component";
+import { Space } from "../../../infrastructure/theme";
+import { styled } from "../../../infrastructure/theme/styled-component";
 
 type Position = "top" | "left" | "right" | "bottom";
 type Size = keyof Omit<Space, "zero">;
