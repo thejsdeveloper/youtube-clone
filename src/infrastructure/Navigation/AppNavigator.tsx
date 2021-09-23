@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Foundation, Ionicons, MaterialIcons } from "@expo/vector-icons";
 
-import { AppBottomTabScreenProps, BottomTabParamList } from "../../../types";
+import { AppBottomTabScreenProps, BottomTabParamList } from "./types";
 import { StyleSheet, View, Text } from "react-native";
 import { colors } from "../theme/colors";
 import { HomeStackNavigator } from "./HomeStack";

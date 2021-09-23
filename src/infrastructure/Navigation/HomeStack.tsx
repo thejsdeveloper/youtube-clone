@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { HomeStackParamList } from "../../../types";
+import { HomeStackParamList } from "./types";
 import { HomeScreen } from "../../screens/home";
 import { Header } from "../../components/Header";
 

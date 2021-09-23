@@ -13,19 +13,33 @@ import { Avatar } from "../Avatar";
 import { YoutubeText, Spacer, Row, Dot, Column } from "../Atoms";
 import { suffixNumber } from "../../utils";
 import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/core";
+import {
+  HomeStackParamList,
+  HomeStackNavigationPros,
+} from "../../infrastructure/Navigation/types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 type VideoListItemProps = {
   video: Video;
 };
 
 export const VideoListItem = ({ video }: VideoListItemProps) => {
+  const { navigate } = useNavigation<HomeStackNavigationPros<"VideoScreen">>();
+
   const minutes = Math.floor(video.duration / 60);
   const seconds = video.duration % 60;
 
   const viewsString = useMemo(() => suffixNumber(video.views), [video.views]);
 
+  const openVideoDetails = () => {
+    navigate("VideoScreen", {
+      videoId: video.id,
+    });
+  };
+
   return (
-    <Pressable>
+    <Pressable onPress={openVideoDetails}>
       <View>
         <Image source={{ uri: video.thumbnail }} />
         <TimeContainer>
