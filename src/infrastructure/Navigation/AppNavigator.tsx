@@ -52,7 +52,6 @@ export const AppNavigator = () => {
         name="Home"
         component={HomeStackNavigator}
         options={({ navigation }: AppBottomTabScreenProps<"Home">) => ({
-          title: "Home",
           tabBarIcon: ({ color, focused }) =>
             focused ? (
               <MaterialIcons name="home-filled" size={24} color={color} />

@@ -14,7 +14,7 @@ export const HomeStackNavigator = () => {
         header: () => <Header />,
       }}
     >
-      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
     </HomeStack.Navigator>
   );
 };

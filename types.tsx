@@ -49,5 +49,5 @@ export type AppBottomTabScreenProps<Screen extends keyof BottomTabParamList> =
   BottomTabScreenProps<BottomTabParamList, Screen>;
 
 export type HomeStackParamList = {
-  Home: undefined;
+  HomeScreen: undefined;
 };

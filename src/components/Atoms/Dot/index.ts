@@ -10,6 +10,6 @@ export const Dot = styled.View<DotProps>`
   height: ${({ theme, size = "xxs" }) => theme.sizes[size]}};
   margin-left: ${({ theme, size = "sm" }) => theme.sizes[size]}};
   margin-right: ${({ theme, size = "sm" }) => theme.sizes[size]}};
-  border-radius: 9999;
+  border-radius: 9999px;
   background-color: ${(props) => props.theme.colors.ui.tertiary};
 `;
