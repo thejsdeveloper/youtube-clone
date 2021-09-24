@@ -2,6 +2,7 @@ const youtubeRed = "#FF0000";
 const almostBlack = "#282828";
 const white = "#fff";
 const grey = "#aaa";
+const lightGrey = "#3d3d3d";
 const darkgrey = "#3d3d3d";
 const black = "#000";
 const blue = "#3ea6ff";
@@ -33,7 +34,7 @@ const ui: UI = {
   primary: almostBlack,
   secondary: white,
   tertiary: grey,
-  quaternary: darkgrey,
+  quaternary: lightGrey,
   muted: black,
   transparent: "transparent",
 };
@@ -53,6 +54,7 @@ export type Text = {
   secondary: string;
   disabled: string;
   tags: string;
+  highlight: string;
 };
 
 const text: Text = {
@@ -60,6 +62,7 @@ const text: Text = {
   secondary: grey,
   disabled: grey,
   tags: blue,
+  highlight: youtubeRed,
 };
 
 export type Colors = {

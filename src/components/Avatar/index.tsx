@@ -1,7 +1,11 @@
 import { styled } from "../../infrastructure/theme/styled-component";
 
-export const Avatar = styled.Image`
-  width: 50px;
-  height: 50px;
+type ImageProps = typeof Image & {
+  size?: number;
+};
+
+export const Avatar = styled.Image<ImageProps>`
+  width: ${({ size = 50 }) => `${size}px`}
+  height: ${({ size = 50 }) => `${size}px`}
   border-radius: 9999px;
 `;

@@ -10,6 +10,8 @@ import {
 } from "../../../../components/Atoms";
 import { suffixNumber } from "../../../../utils";
 import { ActionList } from "../ActionRow";
+import { ChannelInfo } from "../ChannelInfo";
+import { Comment } from "../Comment";
 import { VideoDescriptionContainer } from "./styles";
 
 type VideoDescriptionProps = {
@@ -37,7 +39,10 @@ export const VideoDescription = ({ video }: VideoDescriptionProps) => {
           </Row>
         </Spacer>
       </VideoDescriptionContainer>
+
       <ActionList {...{ video }} />
+      <ChannelInfo user={video.user} />
+      <Comment />
     </>
   );
 };

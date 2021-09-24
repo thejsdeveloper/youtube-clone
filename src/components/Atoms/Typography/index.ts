@@ -34,12 +34,20 @@ const tag = (theme: Theme) => `
   color: ${theme.colors.text.tags}
 `;
 
+const highlight = (theme: Theme) => `
+  font-family: ${theme.fonts.heading};
+  font-size: ${theme.fontSizes.h5};
+  font-weight: ${theme.fontWeights.bold};
+  color: ${theme.colors.text.highlight}
+`;
+
 const variants = {
   body,
   label,
   title,
   subTitle,
   tag,
+  highlight,
 };
 
 type TextProps = {
