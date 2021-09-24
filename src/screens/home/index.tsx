@@ -1,11 +1,11 @@
 import React from "react";
 import { Column } from "../../components/Atoms";
 import { VideoList } from "../../components/VideoList/VideoList";
-import data from "../../../assets/data/videos.json";
-import { Video } from "../../../models";
+import { useVideoListContext } from "../../services/VideoList/videoListContext";
 
 export const HomeScreen = () => {
-  const videos = data as unknown as Video[];
+  const { videos } = useVideoListContext();
+
   return (
     <Column background="primary">
       <VideoList {...{ videos }} />
