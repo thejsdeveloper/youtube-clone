@@ -1,17 +1,29 @@
 import React from "react";
 import { useRoute, RouteProp } from "@react-navigation/core";
 
-import { Column, YoutubeText } from "../../components/Atoms";
+import { Column } from "../../components/Atoms";
 import { HomeStackParamList } from "../../infrastructure/Navigation/types";
 import { SafeAreaViewContainer } from "../../components/SafeAreaView";
+import data from "../../../assets/data/video.json";
+import { Video } from "../../../models";
+import { VideoPlayer } from "./styles";
 
 export const VideoScreen = () => {
   const { params } = useRoute<RouteProp<HomeStackParamList, "VideoScreen">>();
-  console.log("Video Params -> ", params.videoId);
+  const video = data as unknown as Video;
+  console.log("Video Params -> ", video);
   return (
     <SafeAreaViewContainer>
-      <Column background="primary">
-        <YoutubeText variant="title">VideoScreen</YoutubeText>
+      <Column>
+        <VideoPlayer
+          style={{
+            aspectRatio: 16 / 9,
+          }}
+          source={{ uri: video.videoUrl }}
+          resizeMode="cover"
+          usePoster={false}
+          useNativeControls
+        />
       </Column>
     </SafeAreaViewContainer>
   );
