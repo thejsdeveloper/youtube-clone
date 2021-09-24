@@ -4,7 +4,7 @@ const white = "#fff";
 const grey = "#aaa";
 const lightGrey = "#3d3d3d";
 const darkgrey = "#3d3d3d";
-const black = "#000";
+const black = "#1a1a1a";
 const blue = "#3ea6ff";
 const error = "#D0421B";
 const success = "#138000";
@@ -42,11 +42,13 @@ const ui: UI = {
 export type BG = {
   primary: string;
   secondary: string;
+  tertiary: string;
 };
 
 const bg: BG = {
   primary: almostBlack,
   secondary: white,
+  tertiary: black,
 };
 
 export type Text = {

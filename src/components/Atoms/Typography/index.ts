@@ -48,6 +48,10 @@ const boldGrey = (theme: Theme) => `
   color: ${theme.colors.text.secondary}
 `;
 
+const button = (theme: Theme) => `
+  font-size: ${theme.fontSizes.button};
+`;
+
 const variants = {
   body,
   label,
@@ -56,6 +60,7 @@ const variants = {
   tag,
   boldRed,
   boldGrey,
+  button,
 };
 
 type TextProps = {
