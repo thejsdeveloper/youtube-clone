@@ -29,7 +29,7 @@ export const VideoDescription = ({
             <YoutubeText variant="subTitle">{video.createdAt}</YoutubeText>
             {hasTags &&
               video.tags.map((tag) => (
-                <Spacer position="left" size="sm">
+                <Spacer position="left" size="sm" key={tag}>
                   <YoutubeText variant="tag">{tag}</YoutubeText>
                 </Spacer>
               ))}
