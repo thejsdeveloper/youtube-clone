@@ -8,16 +8,16 @@ import {
   TimeText,
   VideoDescriptionContainer,
 } from "./styles";
-import { Video } from "../../../models";
-import { Avatar } from "../Avatar";
-import { YoutubeText, Spacer, Row, Dot, Column } from "../Atoms";
-import { suffixNumber } from "../../utils";
+import { Video } from "../../../../models";
+import { Avatar } from "../../Avatar";
+import { YoutubeText, Spacer, Row, Dot, Column } from "../../Atoms";
+import { suffixNumber } from "../../../utils";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/core";
 import {
   HomeStackParamList,
   HomeStackNavigationPros,
-} from "../../infrastructure/Navigation/types";
+} from "../../../infrastructure/Navigation/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 type VideoListItemProps = {
