@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useRoute, RouteProp } from "@react-navigation/core";
-import { ActivityIndicator, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 import { HomeStackParamList } from "../../infrastructure/Navigation/types";
 import { SafeAreaViewContainer } from "../../components/SafeAreaView";
 
 import { Comment, Video } from "../../../models";
-import { LoaderContainer, VideoLoader, VideoPlayer } from "./styles";
+import { VideoPlayer } from "./styles";
 import { VideoDescription } from "./components/VideoDesscription";
 
-import commentsData from "../../../assets/data/comments.json";
 import { VideoList } from "../../components/VideoList/VideoList";
 import { theme } from "../../infrastructure/theme";
 import { useVideoListContext } from "../../services/videoList/videoListContext";
-import { Column, Row, YoutubeText } from "../../components/Atoms";
+import { YoutubeText } from "../../components/Atoms";
 import { colors } from "../../infrastructure/theme/colors";
+import { YTLoader } from "../../components/Loader";
 
 export const VideoScreen = () => {
   const {
@@ -71,20 +71,7 @@ export const VideoScreen = () => {
   }
 
   if (!video) {
-    return (
-      <View
-        style={[
-          StyleSheet.absoluteFill,
-          {
-            backgroundColor: colors.ui.primary,
-            justifyContent: "center",
-            alignItems: "center",
-          },
-        ]}
-      >
-        <ActivityIndicator color={colors.ui.secondary} animating={true} />
-      </View>
-    );
+    return <YTLoader />;
   }
 
   return (
