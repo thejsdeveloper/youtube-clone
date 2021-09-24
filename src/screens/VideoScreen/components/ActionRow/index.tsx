@@ -14,7 +14,7 @@ export const ActionList = ({ video }: ActionListProps) => {
     <Spacer position="bottom" size="md">
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <ActionListItem>
-          <AntDesign name="like1" size={24} color="lightgrey" />
+          <AntDesign name="like2" size={24} color="lightgrey" />
           <YoutubeText variant="body">{video.likes}</YoutubeText>
         </ActionListItem>
         <ActionListItem>

@@ -6,6 +6,7 @@ type ContextValueProps = {
   videos: Video[];
   loading: boolean;
   error: string | null;
+  getVideoById: (vidoeId: string) => Video | undefined;
 };
 const VideoListContext = createContext<ContextValueProps | null>(null);
 
@@ -30,8 +31,16 @@ export const VideoListContextProvider: React.FC = ({ children }) => {
     getVideos();
   }, []);
 
+  const getVideoById = (videoId: string) => {
+    const video = videos.find((v) => v.id === videoId);
+    if (video) {
+      return video;
+    }
+    setError(`Video is not available`);
+  };
+
   return (
-    <VideoListContext.Provider value={{ videos, loading, error }}>
+    <VideoListContext.Provider value={{ videos, loading, error, getVideoById }}>
       {children}
     </VideoListContext.Provider>
   );

@@ -1,25 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRoute, RouteProp } from "@react-navigation/core";
+import { ActivityIndicator, View, StyleSheet } from "react-native";
 
 import { HomeStackParamList } from "../../infrastructure/Navigation/types";
 import { SafeAreaViewContainer } from "../../components/SafeAreaView";
 
 import { Comment, Video } from "../../../models";
-import { VideoPlayer } from "./styles";
+import { LoaderContainer, VideoLoader, VideoPlayer } from "./styles";
 import { VideoDescription } from "./components/VideoDesscription";
 
-import videoData from "../../../assets/data/video.json";
-import videosData from "../../../assets/data/videos.json";
 import commentsData from "../../../assets/data/comments.json";
 import { VideoList } from "../../components/VideoList/VideoList";
 import { theme } from "../../infrastructure/theme";
+import { useVideoListContext } from "../../services/videoList/videoListContext";
+import { Column, Row, YoutubeText } from "../../components/Atoms";
+import { colors } from "../../infrastructure/theme/colors";
 
 export const VideoScreen = () => {
-  const { params } = useRoute<RouteProp<HomeStackParamList, "VideoScreen">>();
+  const {
+    params: { videoId },
+  } = useRoute<RouteProp<HomeStackParamList, "VideoScreen">>();
+
+  const { getVideoById, videos } = useVideoListContext();
+  const [video, setVideo] = useState<Video | null | undefined>(null);
+  const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    const result = getVideoById(videoId);
+    if (result) {
+      setVideo(result);
+    } else {
+      setError("Error while fetching video");
+    }
+
+    return () => {
+      setError("");
+      setVideo(null);
+    };
+  }, [videoId]);
+
   // TODO: get real data
-  const video = videoData as unknown as Video;
-  const videos = videosData as unknown as Video[];
   const comments = commentsData as unknown as Comment[];
+
+  //TODO: Show error with error boundary
+  if (error.length) {
+    return (
+      <View
+        style={[
+          StyleSheet.absoluteFill,
+          {
+            backgroundColor: colors.ui.primary,
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        ]}
+      >
+        <YoutubeText variant="label">{error}</YoutubeText>
+      </View>
+    );
+  }
+
+  if (!video) {
+    return (
+      <View
+        style={[
+          StyleSheet.absoluteFill,
+          {
+            backgroundColor: colors.ui.primary,
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        ]}
+      >
+        <ActivityIndicator color={colors.ui.secondary} animating={true} />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaViewContainer>
@@ -30,6 +86,9 @@ export const VideoScreen = () => {
           borderBottomWidth: 1,
         }}
         source={{ uri: video.videoUrl }}
+        posterSource={{
+          uri: video.thumbnail,
+        }}
         resizeMode="cover"
         usePoster={false}
         useNativeControls
