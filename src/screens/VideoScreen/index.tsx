@@ -21,26 +21,36 @@ export const VideoScreen = () => {
     params: { videoId },
   } = useRoute<RouteProp<HomeStackParamList, "VideoScreen">>();
 
-  const { getVideoById, videos } = useVideoListContext();
+  const { getVideoById, videos, getCommentsByVideoId } = useVideoListContext();
   const [video, setVideo] = useState<Video | null | undefined>(null);
   const [error, setError] = useState<string>("");
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    const result = getVideoById(videoId);
-    if (result) {
-      setVideo(result);
-    } else {
-      setError("Error while fetching video");
-    }
+    const getVideoAndComment = async () => {
+      try {
+        const commentData = await getCommentsByVideoId(videoId);
+        const videoData = getVideoById(videoId);
+        if (videoData) {
+          setVideo(videoData);
+        } else {
+          setError("Error while fetching video");
+        }
+        if (commentData) {
+          setComments(commentData);
+        } else {
+          setError("Error while fetching video comments");
+        }
+      } catch (e) {}
+    };
+
+    getVideoAndComment();
 
     return () => {
       setError("");
       setVideo(null);
     };
   }, [videoId]);
-
-  // TODO: get real data
-  const comments = commentsData as unknown as Comment[];
 
   //TODO: Show error with error boundary
   if (error.length) {

@@ -31,11 +31,13 @@ export const CommentSection = ({ comment, totalComments }: CommentProps) => {
         <ExpandIcon />
       </Row>
       <CommentInputWrapper>
-        <Spacer position="right" size="md">
-          <Avatar source={{ uri: comment.user.image }} size={25} />
-        </Spacer>
         {!!totalComments ? (
-          <YoutubeText variant="body">{comment.comment}</YoutubeText>
+          <>
+            <Spacer position="right" size="md">
+              <Avatar source={{ uri: comment.user.image }} size={25} />
+            </Spacer>
+            <YoutubeText variant="body">{comment.comment}</YoutubeText>
+          </>
         ) : (
           <InputContainer>
             <CommentInput

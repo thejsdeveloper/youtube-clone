@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { Video } from "../../../models";
+import { Video, Comment } from "../../../models";
+import { fetchComments } from "../comment/comment.service";
 import { fetchVideos } from "./videoList.service";
 
 type ContextValueProps = {
@@ -7,6 +8,7 @@ type ContextValueProps = {
   loading: boolean;
   error: string | null;
   getVideoById: (vidoeId: string) => Video | undefined;
+  getCommentsByVideoId: (vidoeId: string) => Promise<Comment[]>;
 };
 const VideoListContext = createContext<ContextValueProps | null>(null);
 
@@ -29,6 +31,12 @@ export const VideoListContextProvider: React.FC = ({ children }) => {
       }
     };
     getVideos();
+
+    () => {
+      setLoading(false);
+      setError(null);
+      setVideos([]);
+    };
   }, []);
 
   const getVideoById = (videoId: string) => {
@@ -39,8 +47,14 @@ export const VideoListContextProvider: React.FC = ({ children }) => {
     setError(`Video is not available`);
   };
 
+  const getCommentsByVideoId = async (videoId: string) => {
+    return fetchComments(videoId);
+  };
+
   return (
-    <VideoListContext.Provider value={{ videos, loading, error, getVideoById }}>
+    <VideoListContext.Provider
+      value={{ videos, loading, error, getVideoById, getCommentsByVideoId }}
+    >
       {children}
     </VideoListContext.Provider>
   );
