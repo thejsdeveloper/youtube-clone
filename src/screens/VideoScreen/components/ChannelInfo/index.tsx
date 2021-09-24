@@ -1,5 +1,6 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Pressable } from "react-native";
 import { User } from "../../../../../models";
 import { Column, Row, Spacer, YoutubeText } from "../../../../components/Atoms";
 import { Avatar } from "../../../../components/Avatar";
@@ -10,6 +11,12 @@ type ChannelInfoProps = {
   user: User;
 };
 export const ChannelInfo = ({ user }: ChannelInfoProps) => {
+  const [subscribed, setSubscribed] = useState<boolean>(false);
+
+  const subscribe = () => {
+    setSubscribed(!subscribed);
+  };
+
   return (
     <ChannelInfoContainer>
       <Avatar source={{ uri: user.image }} size={40} />
@@ -26,7 +33,23 @@ export const ChannelInfo = ({ user }: ChannelInfoProps) => {
         </Spacer>
       </Column>
       <Column>
-        <YoutubeText variant="highlight">SUBSCRIBE</YoutubeText>
+        <Pressable onPress={subscribe}>
+          {!subscribed && (
+            <YoutubeText variant="boldRed">SUBSCRIBE</YoutubeText>
+          )}
+          {subscribed && (
+            <Row>
+              <YoutubeText variant="boldGrey">SUBSCRIBED</YoutubeText>
+              <Spacer position="left" size="lg">
+                <MaterialCommunityIcons
+                  name="bell-ring-outline"
+                  size={24}
+                  color="grey"
+                />
+              </Spacer>
+            </Row>
+          )}
+        </Pressable>
       </Column>
     </ChannelInfoContainer>
   );

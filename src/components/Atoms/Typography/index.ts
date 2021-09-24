@@ -34,11 +34,18 @@ const tag = (theme: Theme) => `
   color: ${theme.colors.text.tags}
 `;
 
-const highlight = (theme: Theme) => `
+const boldRed = (theme: Theme) => `
   font-family: ${theme.fonts.heading};
   font-size: ${theme.fontSizes.h5};
   font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.text.highlight}
+`;
+
+const boldGrey = (theme: Theme) => `
+  font-family: ${theme.fonts.heading};
+  font-size: ${theme.fontSizes.h5};
+  font-weight: ${theme.fontWeights.bold};
+  color: ${theme.colors.text.secondary}
 `;
 
 const variants = {
@@ -47,7 +54,8 @@ const variants = {
   title,
   subTitle,
   tag,
-  highlight,
+  boldRed,
+  boldGrey,
 };
 
 type TextProps = {
@@ -58,7 +66,6 @@ type TextProps = {
 export const YoutubeText = styled.Text<TextProps>`
   ${({ theme }) => defautTextStyles(theme)};
   ${({ variant, theme }) => variants[variant](theme)}
-  flex-wrap: wrap;
 `;
 
 YoutubeText.defaultProps = {
