@@ -18,3 +18,13 @@ export type User = {
   readonly name: string;
   readonly subscribers?: number;
 };
+
+export type Comment = {
+  id: string;
+  createdAt: string;
+  comment: string;
+  user: User;
+  likes: number;
+  dislikes: number;
+  replies: number;
+};

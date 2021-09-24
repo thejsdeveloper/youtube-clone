@@ -1,24 +1,21 @@
 import React, { useMemo } from "react";
-import { View, Text } from "react-native";
-import { Video } from "../../../../../models";
-import {
-  Column,
-  Dot,
-  Row,
-  Spacer,
-  YoutubeText,
-} from "../../../../components/Atoms";
+import { Comment, Video } from "../../../../../models";
+import { Dot, Row, Spacer, YoutubeText } from "../../../../components/Atoms";
 import { suffixNumber } from "../../../../utils";
 import { ActionList } from "../ActionRow";
 import { ChannelInfo } from "../ChannelInfo";
-import { Comment } from "../Comment";
+import { CommentSection } from "../Comment";
 import { VideoDescriptionContainer } from "./styles";
 
 type VideoDescriptionProps = {
   video: Video;
+  comments: Comment[];
 };
 
-export const VideoDescription = ({ video }: VideoDescriptionProps) => {
+export const VideoDescription = ({
+  video,
+  comments,
+}: VideoDescriptionProps) => {
   const viewsString = useMemo(() => suffixNumber(video.views), [video.views]);
   const hasTags = video.tags && video.tags.length;
   return (
@@ -42,7 +39,7 @@ export const VideoDescription = ({ video }: VideoDescriptionProps) => {
 
       <ActionList {...{ video }} />
       <ChannelInfo user={video.user} />
-      <Comment />
+      <CommentSection comment={comments[0]} totalComments={comments.length} />
     </>
   );
 };
