@@ -12,6 +12,7 @@ import { VideoDescription } from "./components/VideoDesscription";
 import videoData from "../../../assets/data/video.json";
 import videosData from "../../../assets/data/videos.json";
 import { VideoList } from "../../components/VideoList/VideoList";
+import { theme } from "../../infrastructure/theme";
 
 export const VideoScreen = () => {
   const { params } = useRoute<RouteProp<HomeStackParamList, "VideoScreen">>();
@@ -24,6 +25,8 @@ export const VideoScreen = () => {
       <VideoPlayer
         style={{
           aspectRatio: 16 / 9,
+          borderBottomColor: theme.colors.ui.tertiary,
+          borderBottomWidth: 1,
         }}
         source={{ uri: video.videoUrl }}
         resizeMode="cover"

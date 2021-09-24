@@ -25,7 +25,6 @@ export type UI = {
   secondary: string;
   tertiary: string;
   quaternary: string;
-  disabled: string;
   muted: string;
   transparent: string;
 };
@@ -35,7 +34,6 @@ const ui: UI = {
   secondary: white,
   tertiary: grey,
   quaternary: darkgrey,
-  disabled: grey,
   muted: black,
   transparent: "transparent",
 };
