@@ -6,15 +6,15 @@ import { VideoListItem } from "./VideoListItem";
 
 type VideoListProps = {
   videos: Video[];
+  ListHeaderComponent?: React.ComponentType<any> | React.ReactElement | null;
 };
 
-export const VideoList = ({ videos }: VideoListProps) => {
+export const VideoList = ({ videos, ListHeaderComponent }: VideoListProps) => {
   return (
-    <View>
-      <FlatList
-        data={videos}
-        renderItem={({ item }) => <VideoListItem video={item} />}
-      />
-    </View>
+    <FlatList
+      data={videos}
+      renderItem={({ item }) => <VideoListItem video={item} />}
+      ListHeaderComponent={ListHeaderComponent}
+    />
   );
 };

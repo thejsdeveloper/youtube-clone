@@ -25,10 +25,7 @@ export type UI = {
   secondary: string;
   tertiary: string;
   quaternary: string;
-  tags: string;
   disabled: string;
-  error: string;
-  success: string;
   muted: string;
   transparent: string;
 };
@@ -38,10 +35,7 @@ const ui: UI = {
   secondary: white,
   tertiary: grey,
   quaternary: darkgrey,
-  tags: blue,
   disabled: grey,
-  error: error,
-  success: success,
   muted: black,
   transparent: "transparent",
 };
@@ -60,18 +54,14 @@ export type Text = {
   primary: string;
   secondary: string;
   disabled: string;
-  inverse: string;
-  error: string;
-  success: string;
+  tags: string;
 };
 
 const text: Text = {
   primary: white,
   secondary: grey,
   disabled: grey,
-  inverse: white,
-  error: error,
-  success: success,
+  tags: blue,
 };
 
 export type Colors = {

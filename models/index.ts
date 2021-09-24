@@ -11,7 +11,7 @@ export type Video = {
     subscribers: number;
   };
   views: number;
-  tags: string;
+  tags: string[];
   likes: number;
   dislikes: number;
 };

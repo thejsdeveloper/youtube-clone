@@ -4,27 +4,37 @@ import { useRoute, RouteProp } from "@react-navigation/core";
 import { Column } from "../../components/Atoms";
 import { HomeStackParamList } from "../../infrastructure/Navigation/types";
 import { SafeAreaViewContainer } from "../../components/SafeAreaView";
-import data from "../../../assets/data/video.json";
+
 import { Video } from "../../../models";
 import { VideoPlayer } from "./styles";
+import { VideoDescription } from "./components/VideoDesscription";
+
+import videoData from "../../../assets/data/video.json";
+import videosData from "../../../assets/data/videos.json";
+import { VideoList } from "../../components/VideoList/VideoList";
 
 export const VideoScreen = () => {
   const { params } = useRoute<RouteProp<HomeStackParamList, "VideoScreen">>();
-  const video = data as unknown as Video;
-  console.log("Video Params -> ", video);
+  // TODO: get real data
+  const video = videoData as unknown as Video;
+  const videos = videosData as unknown as Video[];
+
   return (
     <SafeAreaViewContainer>
-      <Column>
-        <VideoPlayer
-          style={{
-            aspectRatio: 16 / 9,
-          }}
-          source={{ uri: video.videoUrl }}
-          resizeMode="cover"
-          usePoster={false}
-          useNativeControls
-        />
-      </Column>
+      <VideoPlayer
+        style={{
+          aspectRatio: 16 / 9,
+        }}
+        source={{ uri: video.videoUrl }}
+        resizeMode="cover"
+        usePoster={false}
+        useNativeControls
+      />
+
+      <VideoList
+        {...{ videos }}
+        ListHeaderComponent={() => <VideoDescription video={video} />}
+      />
     </SafeAreaViewContainer>
   );
 };

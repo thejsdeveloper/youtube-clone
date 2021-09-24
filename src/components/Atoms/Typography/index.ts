@@ -26,21 +26,20 @@ color: ${theme.colors.text.secondary}
 
 const label = (theme: Theme) => `
   font-family: ${theme.fonts.heading};
-  font-size: ${theme.fontSizes.body};
+  font-size: ${theme.fontSizes.h5};
   font-weight: ${theme.fontWeights.bold};
 `;
 
-const caption = (theme: Theme) => `
-  font-size: ${theme.fontSizes.caption};
-  font-weight: ${theme.fontWeights.bold};
+const tag = (theme: Theme) => `
+  color: ${theme.colors.text.tags}
 `;
 
 const variants = {
   body,
   label,
-  caption,
   title,
   subTitle,
+  tag,
 };
 
 type TextProps = {
@@ -51,6 +50,7 @@ type TextProps = {
 export const YoutubeText = styled.Text<TextProps>`
   ${({ theme }) => defautTextStyles(theme)};
   ${({ variant, theme }) => variants[variant](theme)}
+  flex-wrap: wrap;
 `;
 
 YoutubeText.defaultProps = {

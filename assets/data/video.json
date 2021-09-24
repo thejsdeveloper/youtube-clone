@@ -11,7 +11,13 @@
     "subscribers": 1000000
   },
   "views": 357000,
-  "tags": "#VadimSavin #notjust #notJustDeveloper",
+  "tags": [
+    "#VadimSavin",
+    "#notjust",
+    "#notJustDeveloper",
+    "#begginers",
+    "#reactNative"
+  ],
   "likes": 3759,
   "dislikes": 53
 }

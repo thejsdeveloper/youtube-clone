@@ -14,6 +14,7 @@ type ViewProps = Pick<
 };
 
 const ViewContainer = styled.View<ViewProps>`
+  flex-wrap: wrap;
   ${(props) => props.flex && `flex: 1`};
   ${({ justifyContent }) => `justify-content: ${justifyContent}`};
   ${({ alignItems }) => `align-items: ${alignItems}`};
