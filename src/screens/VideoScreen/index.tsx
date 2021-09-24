@@ -15,6 +15,7 @@ import { useVideoListContext } from "../../services/videoList/videoListContext";
 import { YoutubeText } from "../../components/Atoms";
 import { colors } from "../../infrastructure/theme/colors";
 import { YTLoader } from "../../components/Loader";
+import { AbsoluteFillView } from "../../components/Atoms/Container";
 
 export const VideoScreen = () => {
   const {
@@ -41,7 +42,9 @@ export const VideoScreen = () => {
         } else {
           setError("Error while fetching video comments");
         }
-      } catch (e) {}
+      } catch (e) {
+        setError("Error while fetching video");
+      }
     };
 
     getVideoAndComment();
@@ -71,7 +74,11 @@ export const VideoScreen = () => {
   }
 
   if (!video) {
-    return <YTLoader />;
+    return (
+      <AbsoluteFillView>
+        <YTLoader />
+      </AbsoluteFillView>
+    );
   }
 
   return (

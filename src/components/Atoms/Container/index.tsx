@@ -1,12 +1,11 @@
 import React from "react";
-import { FlexStyle, StyleProp, View, ViewStyle } from "react-native";
-import { UI } from "../../../infrastructure/theme/colors";
-import { Space } from "../../../infrastructure/theme/spacing";
+import { FlexStyle, StyleSheet, View } from "react-native";
+import { colors, UI } from "../../../infrastructure/theme/colors";
 import { styled } from "../../../infrastructure/theme/styled-component";
 
 type ViewProps = Pick<
   FlexStyle,
-  "alignItems" | "justifyContent" | "flexDirection"
+  "alignItems" | "justifyContent" | "flexDirection" | "flexWrap"
 > & {
   flex?: boolean;
   background?: keyof UI;
@@ -14,8 +13,8 @@ type ViewProps = Pick<
 };
 
 const ViewContainer = styled.View<ViewProps>`
-  flex-wrap: wrap;
   ${(props) => props.flex && `flex: 1`};
+  ${({ flexWrap }) => flexWrap && `flex-wrap: ${flexWrap}`};
   ${({ justifyContent }) => `justify-content: ${justifyContent}`};
   ${({ alignItems }) => `align-items: ${alignItems}`};
   background-color: ${({ background, theme }) =>
@@ -63,5 +62,22 @@ export const Column = ({
     >
       {children}
     </ViewContainer>
+  );
+};
+
+export const AbsoluteFillView: React.FC = ({ children }) => {
+  return (
+    <View
+      style={[
+        StyleSheet.absoluteFill,
+        {
+          backgroundColor: colors.ui.primary,
+          justifyContent: "center",
+          alignItems: "center",
+        },
+      ]}
+    >
+      {children}
+    </View>
   );
 };

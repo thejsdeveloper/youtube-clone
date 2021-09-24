@@ -23,7 +23,7 @@ export const VideoDescription = ({
       <VideoDescriptionContainer>
         <YoutubeText variant="label">{video.title}</YoutubeText>
         <Spacer position="top" size="md">
-          <Row>
+          <Row flexWrap="wrap">
             <YoutubeText variant="subTitle">{viewsString}</YoutubeText>
             <Dot />
             <YoutubeText variant="subTitle">{video.createdAt}</YoutubeText>
