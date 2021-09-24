@@ -12,7 +12,7 @@ import AppLoading from "expo-app-loading";
 import { Navigation } from "./src/infrastructure/Navigation";
 import { theme } from "./src/infrastructure/theme";
 import { ThemeProvider } from "./src/infrastructure/theme/styled-component";
-import { VideoListContextProvider } from "./src/services/VideoList/videoListContext";
+import { VideoListContextProvider } from "./src/services/videoList/videoListContext";
 
 export default function App() {
   const [robotoLoaded] = useFonts({
