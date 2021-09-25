@@ -3,11 +3,11 @@ const almostBlack = "#282828";
 const white = "#fff";
 const grey = "#aaa";
 const lightGrey = "#3d3d3d";
-const darkgrey = "#3d3d3d";
+// const darkgrey = "#3d3d3d";
 const black = "#1a1a1a";
 const blue = "#3ea6ff";
-const error = "#D0421B";
-const success = "#138000";
+// const error = "#D0421B";
+// const success = "#138000";
 
 export type Brand = {
   primary: string;
